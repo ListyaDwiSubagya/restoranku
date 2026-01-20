@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->integer('price');
             $table->unsignedBigInteger('category_id');
-            $table->string('image')->nullable;
+            $table->integer('price'); // atau decimal('price', 10, 2)
+            $table->text('description')->nullable(); 
+            $table->string('image')->nullable(); 
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
